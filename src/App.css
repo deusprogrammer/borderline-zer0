@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+.card-grid {
+  --scale: 0.60;
+  --card-width: calc(250px * var(--scale));
+  --card-height: calc(350px * var(--scale));
+  display: grid;
+  width: 80%;
+  margin: auto;
+  grid-template-columns: repeat(4, 175px);
+  justify-content: center;
+  gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-zone {
+  position: relative;
+  border: 1px solid gray;
+  width: 125px;
+  height: 175px;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+  position: relative;
+  border: 1px solid gray;
+  width: 125px;
+  height: 175px;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card.playable {
+  background-color: rgb(0, 132, 255);
+}
+
+.card .number {
+  position: absolute;
+  padding: 5px;
+}
+
+.card .element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.number.left {
+  left: 0px;
+}
+
+.number.right {
+  right: 0px;
+}
+
+.number.top {
+  top: 0px;
+}
+
+.number.bottom {
+  bottom: 0px;
+}
+
+.number.horizontal {
+  left: 50%;
+  transform: translate(-50%, 0px);
+}
+
+.number.vertical {
+  top: 50%;
+  transform: translate(0px, -50%);
+}
+
+.border-card-zone :is(.card-zone) {
+  transform: rotate(90deg);
+}
+
+.hand {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+#play-area {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100vw;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
